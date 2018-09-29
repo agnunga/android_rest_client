@@ -1,8 +1,6 @@
 package com.ag.timesheet.models;
 
-/**
- * Created by Belal on 14/04/17.
- */
+
 
 public class User {
 

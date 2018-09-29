@@ -2,9 +2,7 @@ package com.ag.timesheet.models;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Belal on 14/04/17.
- */
+
 
 public class Result {
     @SerializedName("error")

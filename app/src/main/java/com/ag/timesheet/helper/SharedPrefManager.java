@@ -5,9 +5,7 @@ import android.content.SharedPreferences;
 
 import com.ag.timesheet.models.User;
 
-/**
- * Created by Belal on 14/04/17.
- */
+
 
 public class SharedPrefManager {
 

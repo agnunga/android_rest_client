@@ -13,9 +13,7 @@ import com.ag.timesheet.models.Message;
 
 import java.util.List;
 
-/**
- * Created by Belal on 14/04/17.
- */
+
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
 

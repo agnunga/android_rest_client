@@ -2,9 +2,7 @@ package com.ag.timesheet.models;
 
 import java.util.ArrayList;
 
-/**
- * Created by Belal on 15/04/17.
- */
+
 
 public class Messages {
 

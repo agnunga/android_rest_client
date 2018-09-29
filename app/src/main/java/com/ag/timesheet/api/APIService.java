@@ -12,9 +12,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-/**
- * Created by Belal on 14/04/17.
- */
+
 
 public interface APIService {
 

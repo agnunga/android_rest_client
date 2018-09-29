@@ -1,8 +1,6 @@
 package com.ag.timesheet.models;
 
-/**
- * Created by Belal on 15/04/17.
- */
+
 
 public class MessageResponse {
     private boolean error;
