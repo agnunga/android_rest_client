@@ -3,8 +3,10 @@ package com.ag.timesheet.models;
 
 
 public class MessageResponse {
+
     private boolean error;
     private String message;
+
 
     public MessageResponse() {
 

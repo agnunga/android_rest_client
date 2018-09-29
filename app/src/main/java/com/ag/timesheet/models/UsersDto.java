@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 
 
-public class Users {
+public class UsersDto {
 
     private ArrayList<User> users;
 
-    public Users() {
+    public UsersDto() {
 
     }
 

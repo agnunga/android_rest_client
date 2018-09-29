@@ -1,9 +1,9 @@
 package com.ag.timesheet.api;
 
 import com.ag.timesheet.models.MessageResponse;
-import com.ag.timesheet.models.Messages;
+import com.ag.timesheet.models.MessagesDto;
 import com.ag.timesheet.models.Result;
-import com.ag.timesheet.models.Users;
+import com.ag.timesheet.models.UsersDto;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -34,7 +34,7 @@ public interface APIService {
 
 
     @GET("users")
-    Call<Users> getUsers();
+    Call<UsersDto> getUsers();
 
     @FormUrlEncoded
     @POST("sendmessage")
@@ -56,5 +56,5 @@ public interface APIService {
 
     //getting messages
     @GET("messages/{id}")
-    Call<Messages> getMessages(@Path("id") int id);
+    Call<MessagesDto> getMessages(@Path("id") int id);
 }

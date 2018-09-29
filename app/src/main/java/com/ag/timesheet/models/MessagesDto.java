@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 
 
-public class Messages {
+public class MessagesDto {
 
     private ArrayList<Message> messages;
 
-    public Messages() {
+    public MessagesDto() {
 
     }
 

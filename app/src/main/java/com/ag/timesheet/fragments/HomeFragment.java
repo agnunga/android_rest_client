@@ -13,7 +13,7 @@ import com.ag.timesheet.R;
 import com.ag.timesheet.api.APIService;
 import com.ag.timesheet.api.APIUrl;
 import com.ag.timesheet.helper.UserAdapter;
-import com.ag.timesheet.models.Users;
+import com.ag.timesheet.models.UsersDto;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,17 +53,17 @@ public class HomeFragment extends Fragment {
         APIService service = retrofit.create(APIService.class);
 
 
-        Call<Users> call = service.getUsers();
+        Call<UsersDto> call = service.getUsers();
 
-        call.enqueue(new Callback<Users>() {
+        call.enqueue(new Callback<UsersDto>() {
             @Override
-            public void onResponse(Call<Users> call, Response<Users> response) {
+            public void onResponse(Call<UsersDto> call, Response<UsersDto> response) {
                 adapter = new UserAdapter(response.body().getUsers(), getActivity());
                 recyclerViewUsers.setAdapter(adapter);
             }
 
             @Override
-            public void onFailure(Call<Users> call, Throwable t) {
+            public void onFailure(Call<UsersDto> call, Throwable t) {
 
             }
         });

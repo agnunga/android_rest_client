@@ -3,6 +3,7 @@ package com.ag.timesheet.models;
 
 
 public class Message {
+
     private int id;
     private String from;
     private String to;
