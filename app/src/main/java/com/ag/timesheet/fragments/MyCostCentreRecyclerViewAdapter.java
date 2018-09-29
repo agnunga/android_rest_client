@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.ag.timesheet.R;
 import com.ag.timesheet.fragments.CostCentreFragment.OnListFragmentInteractionListener;
+import com.ag.timesheet.helper.Timings;
 import com.ag.timesheet.models.CostCentre;
 
 import java.util.List;
@@ -19,11 +20,11 @@ import java.util.List;
  */
 public class MyCostCentreRecyclerViewAdapter extends RecyclerView.Adapter<MyCostCentreRecyclerViewAdapter.ViewHolder> {
 
-    private final List<CostCentre> mValues;
+    private final List<CostCentre> costCentres;
     private final OnListFragmentInteractionListener mListener;
 
     public MyCostCentreRecyclerViewAdapter(List<CostCentre> items, OnListFragmentInteractionListener listener) {
-        mValues = items;
+        costCentres = items;
         mListener = listener;
     }
 
@@ -36,9 +37,13 @@ public class MyCostCentreRecyclerViewAdapter extends RecyclerView.Adapter<MyCost
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = mValues.get(position);
-        holder.ccIdView.setText(Long.toString(mValues.get(position).getId()));
-        holder.ccNameView.setText(mValues.get(position).getName());
+        holder.mItem = costCentres.get(position);
+        holder.ccIdView.setText(Long.toString(costCentres.get(position).getId()));
+        holder.ccNameView.setText(costCentres.get(position).getName());
+        holder.orderDetailsView.setText(costCentres.get(position).getOrder_details());
+        holder.descriptionView.setText(costCentres.get(position).getDescription());
+        holder.dateCreatedView.setText(Timings.getDate(costCentres.get(position).getDate_created()));
+        holder.dateModifiedView.setText(Timings.getDate(costCentres.get(position).getDate_modified()));
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,13 +60,17 @@ public class MyCostCentreRecyclerViewAdapter extends RecyclerView.Adapter<MyCost
     @Override
     public int getItemCount() {
 
-        return mValues == null? 0 : mValues.size();
+        return costCentres == null? 0 : costCentres.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
         public final TextView ccIdView;
         public final TextView ccNameView;
+        public final TextView orderDetailsView;
+        public final TextView descriptionView;
+        public final TextView dateCreatedView;
+        public final TextView dateModifiedView;
         public CostCentre mItem;
 
         public ViewHolder(View view) {
@@ -69,6 +78,10 @@ public class MyCostCentreRecyclerViewAdapter extends RecyclerView.Adapter<MyCost
             mView = view;
             ccIdView = (TextView) view.findViewById(R.id.cc_id);
             ccNameView = (TextView) view.findViewById(R.id.cc_name);
+            orderDetailsView = (TextView) view.findViewById(R.id.order_details);
+            descriptionView = (TextView) view.findViewById(R.id.description);
+            dateCreatedView = (TextView) view.findViewById(R.id.date_created);
+            dateModifiedView = (TextView) view.findViewById(R.id.date_modified);
         }
 
         @Override
