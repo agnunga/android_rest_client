@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.ag.timesheet.R;
+import com.ag.timesheet.fragments.ActivityFragment;
 import com.ag.timesheet.fragments.HomeFragment;
 import com.ag.timesheet.fragments.MessageFragment;
 import com.ag.timesheet.fragments.ProfileFragment;
@@ -72,6 +73,9 @@ public class HomeActivity extends AppCompatActivity
         switch (itemId) {
             case R.id.nav_home:
                 fragment = new HomeFragment();
+                break;
+            case R.id.nav_activities:
+                fragment = new ActivityFragment();
                 break;
             case R.id.nav_profile:
                 fragment = new ProfileFragment();

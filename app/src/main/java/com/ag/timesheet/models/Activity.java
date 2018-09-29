@@ -1,15 +1,25 @@
 package com.ag.timesheet.models;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Activity implements Serializable {
 
     private long id;
     private String code;
     private long project_id;
-    private String start_date;
-    private String end_date;
+    private Date start_date;
+    private Date end_date;
     private String other_details;
+
+    public Activity(long id, String code, long project_id, Date start_date, Date end_date, String other_details) {
+        this.id = id;
+        this.code = code;
+        this.project_id = project_id;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.other_details = other_details;
+    }
 
     @Override
     public String toString() {
@@ -47,19 +57,19 @@ public class Activity implements Serializable {
         this.project_id = project_id;
     }
 
-    public String getStart_date() {
+    public Date getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(String start_date) {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
-    public String getEnd_date() {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(String end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
 
