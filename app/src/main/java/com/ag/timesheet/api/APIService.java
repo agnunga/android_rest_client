@@ -1,6 +1,8 @@
 package com.ag.timesheet.api;
 
 import com.ag.timesheet.models.ActivitiesDto;
+import com.ag.timesheet.models.CostCentre;
+import com.ag.timesheet.models.CostCentresDto;
 import com.ag.timesheet.models.MessageResponse;
 import com.ag.timesheet.models.MessagesDto;
 import com.ag.timesheet.models.Result;
@@ -37,9 +39,11 @@ public interface APIService {
     @GET("users")
     Call<UsersDto> getUsers();
 
-
     @GET("activities")
     Call<ActivitiesDto> getActivities();
+
+    @GET("cost_centres")
+    Call<CostCentresDto> getCostCentres();
 
     @FormUrlEncoded
     @POST("sendmessage")

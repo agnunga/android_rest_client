@@ -13,6 +13,16 @@ public class CostCentre implements Serializable {
     private Date date_created;
     private Date date_modified;
 
+    public CostCentre(long id, String name, String description, String order_details, long owner_id, Date date_created, Date date_modified) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.order_details = order_details;
+        this.owner_id = owner_id;
+        this.date_created = date_created;
+        this.date_modified = date_modified;
+    }
+
     @Override
     public String toString() {
         return "CostCentre{" +

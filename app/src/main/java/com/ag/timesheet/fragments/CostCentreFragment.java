@@ -1,30 +1,30 @@
 package com.ag.timesheet.fragments;
 
-        import android.content.Context;
-        import android.os.Bundle;
-        import android.support.v4.app.Fragment;
-        import android.support.v7.widget.GridLayoutManager;
-        import android.support.v7.widget.LinearLayoutManager;
-        import android.support.v7.widget.RecyclerView;
-        import android.util.Log;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-        import com.ag.timesheet.R;
-        import com.ag.timesheet.api.APIService;
-        import com.ag.timesheet.api.APIUrl;
-        import com.ag.timesheet.models.ActivitiesDto;
-        import com.ag.timesheet.models.Activity;
+import com.ag.timesheet.R;
+import com.ag.timesheet.api.APIService;
+import com.ag.timesheet.api.APIUrl;
+import com.ag.timesheet.models.CostCentresDto;
+import com.ag.timesheet.models.CostCentre;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
-        import retrofit2.Call;
-        import retrofit2.Callback;
-        import retrofit2.Response;
-        import retrofit2.Retrofit;
-        import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * A fragment representing a list of Items.
@@ -32,7 +32,7 @@ package com.ag.timesheet.fragments;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ActivityFragment extends Fragment {
+public class CostCentreFragment extends Fragment {
 
     String TAG = this.getClass().getSimpleName();
     // TODO: Customize parameter argument names
@@ -41,22 +41,20 @@ public class ActivityFragment extends Fragment {
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
     private RecyclerView recyclerView;
-    private MyActivityRecyclerViewAdapter myActivityRecyclerViewAdapter;
-
-    /*Used to load dummy data*/
-    private List<Activity> activities = new ArrayList<>();
+    private MyCostCentreRecyclerViewAdapter myCostCentreRecyclerViewAdapter;
+    private List<CostCentre> costCentres = new ArrayList<>();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ActivityFragment() {
+    public CostCentreFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ActivityFragment newInstance(int columnCount) {
-        ActivityFragment fragment = new ActivityFragment();
+    public static CostCentreFragment newInstance(int columnCount) {
+        CostCentreFragment fragment = new CostCentreFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -75,9 +73,9 @@ public class ActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_activity_list, container, false);
-        getActivity().setTitle("Activities");
+        View view = inflater.inflate(R.layout.fragment_costcentre_list, container, false);
 
+        getActivity().setTitle("Cost Centres");
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -90,13 +88,12 @@ public class ActivityFragment extends Fragment {
 
             loadDataWithRetrofit();
             /*
-            Comment loadDataWithRetrofit(); and load dummy data with this block
-            activities.add(new Activity(1, "011", 1, new Date(), new Date(), "Other Details"));
-            activities.add(new Activity(2, "121", 1, new Date(), new Date(), "Other Details 2"));
-            activities.add(new Activity(3, "139", 2, new Date(), new Date(), "More Details none"));
-            myActivityRecyclerViewAdapter = new MyActivityRecyclerViewAdapter(activities, mListener);
-            recyclerView.setAdapter(myActivityRecyclerViewAdapter);*/
-
+            TO load dummy data, comment loadDataWithRetrofit(); and uncomment this block
+            costCentres.add(new CostCentre(1, "C Centre 1", "Ideal Sana", "Opposite SouthB", 1, new Date(), new Date()));
+            costCentres.add(new CostCentre(2, "C Centre 2", "Ideal Kabisa", "Sides SouthC", 1, new Date(), new Date()));
+            costCentres.add(new CostCentre(3, "C Centre 3", "Kiasi tu", "Fronts Lesho", 1, new Date(), new Date()));
+            myCostCentreRecyclerViewAdapter = new MyCostCentreRecyclerViewAdapter(costCentres, mListener);
+            recyclerView.setAdapter(myCostCentreRecyclerViewAdapter);*/
         }
         return view;
     }
@@ -108,14 +105,15 @@ public class ActivityFragment extends Fragment {
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
         } else {
+            /*throw new RuntimeException(context.toString()
+                    + " must implement OnListFragmentInteractionListener");*/
             mListener = new OnListFragmentInteractionListener() {
                 @Override
-                public void onListFragmentInteraction(Activity item) {
+                public void onListFragmentInteraction(CostCentre item) {
 
                 }
             };
-            /*throw new RuntimeException(context.toString()
-                    + " must implement OnListFragmentInteractionListener");*/
+            Log.d(TAG, "onAttach: Consider Implementing OnListFragmentInteractionListener");
         }
     }
 
@@ -137,7 +135,7 @@ public class ActivityFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Activity item);
+        void onListFragmentInteraction(CostCentre item);
     }
 
 
@@ -150,18 +148,19 @@ public class ActivityFragment extends Fragment {
 
         APIService service = retrofit.create(APIService.class);
 
-        Call<ActivitiesDto> call = service.getActivities();
+        Call<CostCentresDto> call = service.getCostCentres();
 
-        call.enqueue(new Callback<ActivitiesDto>() {
+        call.enqueue(new Callback<CostCentresDto>() {
             @Override
-            public void onResponse(Call<ActivitiesDto> call, Response<ActivitiesDto> response) {
-                myActivityRecyclerViewAdapter = new MyActivityRecyclerViewAdapter(response.body().getActivities(), mListener);
-                recyclerView.setAdapter(myActivityRecyclerViewAdapter);
+            public void onResponse(Call<CostCentresDto> call, Response<CostCentresDto> response) {
+                myCostCentreRecyclerViewAdapter = new MyCostCentreRecyclerViewAdapter(response.body().getCost_centres(), mListener);
+                recyclerView.setAdapter(myCostCentreRecyclerViewAdapter);
+                Log.d(TAG, "onResponse: " + response.body().getCost_centres() );
+
             }
 
             @Override
-            public void onFailure(Call<ActivitiesDto> call, Throwable t) {
-
+            public void onFailure(Call<CostCentresDto> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getMessage() + "\n");
                 t.printStackTrace();
             }

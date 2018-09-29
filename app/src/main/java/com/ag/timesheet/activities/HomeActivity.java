@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.ag.timesheet.R;
 import com.ag.timesheet.fragments.ActivityFragment;
+import com.ag.timesheet.fragments.CostCentreFragment;
 import com.ag.timesheet.fragments.HomeFragment;
 import com.ag.timesheet.fragments.MessageFragment;
 import com.ag.timesheet.fragments.ProfileFragment;
@@ -76,6 +77,9 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_activities:
                 fragment = new ActivityFragment();
+                break;
+            case R.id.nav_cost_centres:
+                fragment = new CostCentreFragment();
                 break;
             case R.id.nav_profile:
                 fragment = new ProfileFragment();
