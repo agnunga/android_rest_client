@@ -13,7 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import net.simplifiedcoding.retrofitexample.R;
+import com.ag.timesheet.R;
 
 import com.ag.timesheet.api.APIService;
 import com.ag.timesheet.api.APIUrl;

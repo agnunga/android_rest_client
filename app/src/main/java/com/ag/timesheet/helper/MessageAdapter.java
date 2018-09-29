@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import net.simplifiedcoding.retrofitexample.R;
+import com.ag.timesheet.R;
 
 import com.ag.timesheet.models.Message;
 

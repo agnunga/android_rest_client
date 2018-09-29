@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import net.simplifiedcoding.retrofitexample.R;
+import com.ag.timesheet.R;
 
 import com.ag.timesheet.helper.SharedPrefManager;
 

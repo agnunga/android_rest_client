@@ -14,7 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import net.simplifiedcoding.retrofitexample.R;
+import com.ag.timesheet.R;
 import com.ag.timesheet.fragments.HomeFragment;
 import com.ag.timesheet.fragments.MessageFragment;
 import com.ag.timesheet.fragments.ProfileFragment;

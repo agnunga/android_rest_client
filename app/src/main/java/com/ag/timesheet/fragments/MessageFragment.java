@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import net.simplifiedcoding.retrofitexample.R;
+import com.ag.timesheet.R;
 import com.ag.timesheet.api.APIService;
 import com.ag.timesheet.api.APIUrl;
 import com.ag.timesheet.helper.MessageAdapter;

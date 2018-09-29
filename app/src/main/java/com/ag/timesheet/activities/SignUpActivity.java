@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import net.simplifiedcoding.retrofitexample.R;
+import com.ag.timesheet.R;
 import com.ag.timesheet.api.APIService;
 import com.ag.timesheet.api.APIUrl;
 import com.ag.timesheet.helper.SharedPrefManager;

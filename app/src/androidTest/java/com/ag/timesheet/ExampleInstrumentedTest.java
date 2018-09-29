@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("net.simplifiedcoding.retrofitexample", appContext.getPackageName());
+        assertEquals("com.ag.timesheet", appContext.getPackageName());
     }
 }
