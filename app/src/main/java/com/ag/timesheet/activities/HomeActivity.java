@@ -20,6 +20,7 @@ import com.ag.timesheet.fragments.CostCentreFragment;
 import com.ag.timesheet.fragments.HomeFragment;
 import com.ag.timesheet.fragments.MessageFragment;
 import com.ag.timesheet.fragments.ProfileFragment;
+import com.ag.timesheet.fragments.ProjectFragment;
 import com.ag.timesheet.helper.SharedPrefManager;
 
 public class HomeActivity extends AppCompatActivity
@@ -80,6 +81,9 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_cost_centres:
                 fragment = new CostCentreFragment();
+                break;
+            case R.id.nav_projects:
+                fragment = new ProjectFragment();
                 break;
             case R.id.nav_profile:
                 fragment = new ProfileFragment();

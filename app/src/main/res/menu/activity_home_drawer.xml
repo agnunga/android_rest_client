@@ -12,6 +12,9 @@
             android:id="@+id/nav_cost_centres"
             android:title="Cost Centres" />
         <item
+            android:id="@+id/nav_projects"
+            android:title="Projects" />
+        <item
             android:id="@+id/nav_profile"
             android:title="Profile" />
         <item
