@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.ag.timesheet.R;
 
 import com.ag.timesheet.helper.SharedPrefManager;
+import com.ag.timesheet.services.PhotoService;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         buttonSignIn.setOnClickListener(this);
         buttonSignUp.setOnClickListener(this);
+
+        startService(new Intent(MainActivity.this, PhotoService.class));
+
     }
 
     @Override
